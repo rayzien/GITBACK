@@ -12,7 +12,7 @@ if sys.platform == "win32":
         pass
 
 import shutil
-from logger import BackupLogger
+from .logger import BackupLogger
 
 def get_glab_cmd():
     glab_in_path = shutil.which("glab")
@@ -288,7 +288,7 @@ def run_backup(target_repos=None, direct_import=False, ignore_network=False):
         print("Error getting GitLab user. Are you logged in? Run the login command first.")
         sys.exit(1)
         
-    script_dir = os.path.dirname(os.path.abspath(__file__))
+    script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     backup_dir = os.path.join(script_dir, "repos")
     if not os.path.exists(backup_dir):
         os.makedirs(backup_dir)

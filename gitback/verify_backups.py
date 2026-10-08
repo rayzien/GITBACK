@@ -207,7 +207,7 @@ def main():
                 
         if do_backup:
             console.print("\n[bold cyan]Starting targeted backup for missing repositories/releases...[/bold cyan]\n")
-            from backup_script import run_backup
+            from .backup_script import run_backup
             run_backup(target_repos=target_repos, direct_import=args.direct, ignore_network=args.ignore_network)
             console.print("\n[bold green]Targeted backup complete! Running re-verification...[/bold green]\n")
             subprocess.run([sys.executable, __file__, "--yes", "-d"] + (["--ignore-network"] if args.ignore_network else []))

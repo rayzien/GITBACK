@@ -18,8 +18,8 @@ from rich.prompt import Prompt, Confirm
 
 console = Console()
 
-from backup_script import run_backup, ensure_auth, GLAB_CMD, get_github_user
-from verify_backups import main as verify_main
+from .backup_script import run_backup, ensure_auth, GLAB_CMD, get_github_user
+from .verify_backups import main as verify_main
 
 def run_status_check():
     ensure_auth()
@@ -37,7 +37,7 @@ def run_status_check():
     except Exception:
         glab_user = "[red]CLI Not Found[/red]"
         
-    script_dir = os.path.dirname(os.path.abspath(__file__))
+    script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     backup_dir = os.path.join(script_dir, "repos")
     local_mirrors_count = len([f for f in os.listdir(backup_dir) if f.endswith(".git")]) if os.path.exists(backup_dir) else 0
 
