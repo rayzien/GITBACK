@@ -2,3 +2,4 @@ __pycache__/
 repos/
 credentials/
 .env
+gitback.egg-info/
