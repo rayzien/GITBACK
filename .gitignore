@@ -1,0 +1,4 @@
+__pycache__/
+repos/
+credentials/
+.env
